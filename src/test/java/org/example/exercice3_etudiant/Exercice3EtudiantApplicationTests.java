@@ -1,10 +1,10 @@
-package com.example.exercice_session_forum;
+package org.example.exercice3_etudiant;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExerciceSessionForumApplicationTests {
+class Exercice3EtudiantApplicationTests {
 
 	@Test
 	void contextLoads() {
