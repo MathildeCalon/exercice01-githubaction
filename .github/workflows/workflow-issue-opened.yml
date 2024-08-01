@@ -1,0 +1,14 @@
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue_received:
+    runs-on: ubutun-latest
+    steps:
+      - name: confirm issue
+      - run: gh issue comment $ISSUE_URL --body "Bonjour '$AUTHOR' Nous avons bien pris en compte votre problème du nom de '$ISSUE_NAME'."
+        env:
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_NAME: ${{ github.event.issue.title }}
