@@ -7,6 +7,10 @@ jobs:
     steps:
       - name: get project
         uses: actions/checkout@v3
+      - name: setup JDK17
+        uses: action/setup-java@v3
+        with:
+          java-version: '17'
       - name: install dependencies
         run: mvn install -DskipTests
       - name: display message
