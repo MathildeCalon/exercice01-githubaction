@@ -6,12 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get project
-        uses: action/checkout@v4
+        uses: actions/checkout
       - name: install dependencies
         run: mvn install -DskipTests
       - name: display message
         run: echo "Build OK"
-
-  #étape 1: récupération du projet
-  #étape 2: installation des dépendances
-  #étape 3: Afficher un message pour indiquer le build de l'application
