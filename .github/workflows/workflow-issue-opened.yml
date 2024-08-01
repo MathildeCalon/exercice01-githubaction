@@ -5,6 +5,8 @@ on:
 jobs:
   issue_received:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - run: gh issue comment $ISSUE_URL --body "Bonjour '$AUTHOR' Nous avons bien pris en compte votre problème du nom de '$ISSUE_NAME'."
         env:
