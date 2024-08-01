@@ -1,0 +1,17 @@
+on: push
+
+jobs:
+  first-job:
+    name: get and build app
+    runs-on: ubuntu-latest
+    steps:
+      - name: get project
+        uses: action/checkout@v4
+      - name: install dependencies
+        uses: mvn install -DskipTests
+      - name: display message
+        uses: echo "Build OK"
+
+  #étape 1: récupération du projet
+  #étape 2: installation des dépendances
+  #étape 3: Afficher un message pour indiquer le build de l'application
