@@ -6,12 +6,9 @@ jobs:
   issue_received:
     runs-on: ubuntu-latest
     steps:
-      - run: gh auth login --with-token <<< "$GH_TOKEN" 
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - run: gh issue comment $ISSUE_URL --body "Bonjour '$AUTHOR' Nous avons bien pris en compte votre problème du nom de '$ISSUE_NAME'."
         env:
           ISSUE_URL: ${{ github.event.issue.html_url }}
           AUTHOR: ${{ github.event.issue.user.login }}
           ISSUE_NAME: ${{ github.event.issue.title }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
