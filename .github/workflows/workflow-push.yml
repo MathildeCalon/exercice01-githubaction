@@ -13,7 +13,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.mvn
-          key: ${{ runner.os }}--maeven-package-${{ hashFiles('**/pom.xml') }}
+          key: ${{ runner.os }}--maven-${{ hashFiles('**/pom.xml') }}
 
       - name: setup JDK17
         uses: actions/setup-java@v4
@@ -23,6 +23,7 @@ jobs:
 
       - name: install dependencies
         run: mvn install
+        continue-on-error: false
 
       - name: display message
         run: echo "Build OK"
@@ -32,3 +33,4 @@ jobs:
         with:
           name: application
           path: target
+        if: ${{ github.ref == 'refs/heads/main' }}
