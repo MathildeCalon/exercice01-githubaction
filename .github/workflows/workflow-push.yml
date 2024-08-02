@@ -37,7 +37,6 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
-    needs: download
     if: ${{ github.ref == 'refs/heads/main' }}
     env:
       USERNAME: ${{ secrets.DOCKER_USERNAME }}
