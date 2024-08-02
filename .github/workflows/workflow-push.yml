@@ -51,7 +51,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: build docker img
-        run: docker build -t $USERNAME/exercice_docker_git:v1
+        run: docker build -t $USERNAME/exercice_docker_git:v1 .
 
       - name : push docker image
         run: docker push $USERNAME/exercice_docker_git:v1
